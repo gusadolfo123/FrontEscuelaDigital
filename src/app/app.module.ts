@@ -18,6 +18,11 @@ import { ModalComponent } from './components/admin/course/modal/modal.component'
 import { TemaryComponent } from './components/course/temary/temary.component';
 import { LessonsComponent } from './components/course/lessons/lessons.component';
 import { DetailCourseComponent } from './components/course/detail-course/detail-course.component';
+import { ListCategoriesComponent } from './components/category/list-categories/list-categories.component';
+import { CategoryComponent } from './components/category/category.component';
+import { CourseComponent } from './components/course/course.component';
+import { AboutComponent } from './components/about/about.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +41,12 @@ import { DetailCourseComponent } from './components/course/detail-course/detail-
     ModalComponent,
     TemaryComponent,
     LessonsComponent,
-    DetailCourseComponent
+    DetailCourseComponent,
+    ListCategoriesComponent,
+    CategoryComponent,
+    CourseComponent,
+    AboutComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
