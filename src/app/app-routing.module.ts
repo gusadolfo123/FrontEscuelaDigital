@@ -16,8 +16,8 @@ const routes: Routes = [
   { path: "categorias", component: CategoryComponent },
   { path: "nosotros", component: AboutComponent },
   { path: "contacto", component: ContactComponent },
-  { path: "user/login", component: LoginComponent },
-  { path: "user/register", component: RegisterComponent },
+  { path: "ingresar", component: LoginComponent },
+  { path: "registrar", component: RegisterComponent },
   { path: "user/profile", component: ProfileComponent },
   { path: "**", component: Page404Component }
 ];
