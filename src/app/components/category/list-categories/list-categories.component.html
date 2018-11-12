@@ -1,3 +1,19 @@
-<p>
-  list-categories works!
-</p>
+<h2 class="text-center mb-4">Categorias</h2>
+
+<div class="row align-items-center lista-categorias text-center pt-0 pb-0">
+  <div
+    class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12"
+    *ngFor="let category of categories"
+  >
+    <a [routerLink]="['/cursos', category.id]">
+      <figure class="figure text-center">
+        <img
+          src="{{ category.UrlImage }}"
+          class="figure-img img-fluid rounded-circle"
+          alt="A generic square placeholder image with rounded corners in a figure."
+        />
+        <figcaption>{{ category.Description }}</figcaption>
+      </figure>
+    </a>
+  </div>
+</div>

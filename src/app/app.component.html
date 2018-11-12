@@ -1,5 +1,5 @@
 <div class="wrapper">
-  <app-sidebar *ngIf="isLoged"></app-sidebar>
+  <app-sidebar *ngIf="isLogged && this.globals.getStateSidebar()"></app-sidebar>
 
   <div id="content" class="container">
     <app-header></app-header>

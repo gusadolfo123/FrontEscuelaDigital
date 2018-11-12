@@ -83,7 +83,7 @@ a.article:hover {
   color: #fff !important;
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   #sidebar {
     margin-left: -250px;
   }
@@ -93,4 +93,4 @@ a.article:hover {
   #sidebarCollapse span {
     display: none;
   }
-}
+} */

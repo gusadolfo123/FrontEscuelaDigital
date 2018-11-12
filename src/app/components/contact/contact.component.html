@@ -1,3 +1,41 @@
-<p>
-  contact works!
-</p>
+<div class="container">
+  <div class="row justify-content-center align-content-center ml-2 mr-2">
+    <div class="col-md-10 mb-4 mt-5 pl-2 pr-2 pb-2 pt-2 login text-dark bg-light">
+      <h1 class="text-center mt-2 mb-4">Formulario de Contacto</h1>
+      <ngb-alert [type]="alert.type" *ngIf="isError" (close)="isError = false">
+        <ul class="mb-0">
+          <li *ngFor="let message of alert.messages">{{ message }}</li>
+        </ul>
+      </ngb-alert>
+      <form #formContact="ngForm" (ngSubmit)="onSendEmail(formContact)">
+        <div class="form-row">
+          <div class="col">
+            <input name="email" type="email" [(ngModel)]="contact.email" class="form-control" id="email" placeholder="Correo"
+              required minlength="8" />
+          </div>
+          <div class="col">
+            <input name="fullName" type="text" [(ngModel)]="contact.fullName" class="form-control" id="fullName"
+              placeholder="Nombre Completo" required minlength="4" />
+          </div>
+        </div>
+        <div class="form-row mt-2">
+          <div class="col">
+            <input name="subject" type="text" class="form-control" [(ngModel)]="contact.subject" id="subject"
+              placeholder="Asunto" required minlength="4" />
+          </div>
+        </div>
+
+        <div class="form-row mt-2">
+          <div class="col">
+            <textarea placeholder="Mensaje..." class="form-control" name="message" id="message" [(ngModel)]="contact.content"
+              cols="30" rows="10"></textarea>
+          </div>
+        </div>
+
+        <button type="submit" class="btn col-12 login-btn mt-2 mb-2 btn-primary">
+          Enviar
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

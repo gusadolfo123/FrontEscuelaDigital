@@ -32,8 +32,9 @@ import { HttpClientModule } from "@angular/common/http";
 
 // formularios
 import { FormsModule } from "@angular/forms";
-import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { SliderComponent } from './components/slider/slider.component';
+import { SidebarComponent } from "./components/sidebar/sidebar.component";
+import { SliderComponent } from "./components/slider/slider.component";
+import { ListCoursesHomeComponent } from "./components/course/list-courses-home/list-courses-home.component";
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { SliderComponent } from './components/slider/slider.component';
     AboutComponent,
     ContactComponent,
     SidebarComponent,
-    SliderComponent
+    SliderComponent,
+    ListCoursesHomeComponent
   ],
   imports: [
     BrowserModule,

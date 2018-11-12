@@ -1,55 +1,49 @@
 <section id="register">
   <div class="container">
     <div class="row justify-content-center align-content-center ml-2 mr-2">
-      <div
-        class="col-md-6 mb-4 mt-5 pl-2 pr-2 pb-2 pt-2 register text-dark bg-light"
-      >
+      <div class="col-md-6 mb-4 mt-5 pl-2 pr-2 pb-2 pt-2 register text-dark bg-light">
         <h1 class="text-center mt-2 mb-4">Crear Cuenta</h1>
-        <ngb-alert
-          [type]="alert.type"
-          *ngIf="isError"
-          (close)="isError = false"
-        >
+        <ngb-alert [type]="alert.type" *ngIf="isError" (close)="isError = false">
           <ul class="mb-0">
             <li *ngFor="let message of alert.messages">{{ message }}</li>
           </ul>
         </ngb-alert>
         <form #formRegister="ngForm" (ngSubmit)="onRegister(formRegister)">
           <div class="form-group">
-            <input
-              [(ngModel)]="user.username"
-              name="username"
-              type="text"
-              class="form-control"
-              id="username"
-              placeholder="Nombre"
-              required
-            />
+            <input [(ngModel)]="user.firstName" name="firstName" type="text" class="form-control" id="firstName"
+              placeholder="Nombres" required />
           </div>
           <div class="form-group">
-            <input
-              [(ngModel)]="user.email"
-              name="email"
-              type="email"
-              class="form-control"
-              id="email"
-              placeholder="email"
-              required
-            />
+            <input [(ngModel)]="user.lastName" name="lastName" type="text" class="form-control" id="lastName"
+              placeholder="Apellidos" required />
           </div>
           <div class="form-group">
-            <input
-              [(ngModel)]="user.password"
-              name="password"
-              type="password"
-              class="form-control"
-              id="password"
-              placeholder="password"
-              required
-            />
+            <input [(ngModel)]="user.email" name="email" type="email" class="form-control" id="email" placeholder="email"
+              required />
           </div>
-          <small id="emailHelp" class="form-text text-dark"
-            >Al registrarse, usted acepta nuestros
+          <div class="form-group">
+            <select class="custom-select" [(ngModel)]="user.document_type_id" name="document_type_id" id="document_type_id">
+              <option value="" disabled selected>Tipo Documento</option>
+              <option [ngValue]="document.id" *ngFor="let document of documentTypes">{{ document.Description }}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <select class="custom-select" [(ngModel)]="user.rol_id" name="rol_id" id="rol_id">
+              <option value="" disabled selected>Rol</option>
+              <option [ngValue]="rol.id" *ngFor="let rol of rols">{{
+                rol.Description
+                }}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="user.documentNumber" name="documentNumber" type="number" class="form-control" id="documentNumber"
+              placeholder="Documento" required />
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="user.password" name="password" type="password" class="form-control" id="password"
+              placeholder="password" required />
+          </div>
+          <small id="emailHelp" class="form-text text-dark">Al registrarse, usted acepta nuestros
             <a href="" class="alert-link">Terminos de Servicio</a> y
             <a href="" class="alert-link">Politica de Privacidad</a>
           </small>
@@ -58,7 +52,7 @@
             Registrarse
           </button>
 
-          <a class="btn col-12 mt-2 mb-2 btn-primary" routerLink="/user/login">
+          <a class="btn col-12 mt-2 mb-2 btn-primary" routerLink="/ingresar">
             <span>Ya tienes una cuenta?</span>
           </a>
         </form>
