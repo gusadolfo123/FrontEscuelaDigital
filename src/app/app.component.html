@@ -1,10 +1,24 @@
-<div class="wrapper">
-  <app-sidebar *ngIf="isLogged && this.globals.getStateSidebar()"></app-sidebar>
-
+<div class="wrapper" *ngIf="user.rol.Description == 'Student' || user.rol.Description == undefined ">
+  <app-sidebar *ngIf="isLogged && this.globals.getStateSidebar()">
+  </app-sidebar>
   <div id="content" class="container">
     <app-header></app-header>
-    <router-outlet></router-outlet>
+    <div id="page" class="routeContainer" [@routeAnimation]="getDepth(myOutlet)" @divAnimation>
+      <router-outlet #myOutlet="outlet"></router-outlet>
+    </div>
     <div class="line"></div>
     <app-footer></app-footer>
+  </div>
+</div>
+
+<div *ngIf="isLogged && user.rol.Description == 'Teacher'">
+  <div class="row-fluid pt-4 pb-4 pl-2 pr-2 bg-dark text-light">
+    <div class="col-md-12">
+      <h1 class="text-center">Dashboard</h1>
+    </div>
+  </div>
+  <app-d-header></app-d-header>
+  <div id="page" class="routeContainer" [@routeAnimation]="getDepth(myOutlet)" @divAnimation>
+    <router-outlet #myOutlet="outlet"></router-outlet>
   </div>
 </div>

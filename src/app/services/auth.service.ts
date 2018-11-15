@@ -15,7 +15,7 @@ export class AuthService {
     "Content-Type": "application/json"
   });
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   registerUser(user: User): Observable<User> {
     const uriApi = "http://localhost:3000/users";
@@ -41,7 +41,7 @@ export class AuthService {
 
   getUserByIdEmail(email: string): Observable<User> {
     const uriApi = "http://localhost:3000/users?email=" + email;
-    return this.http.get(uriApi);
+    return this.http.get(uriApi).pipe(map(data => data[0]));
   }
 
   setUser(user: User): void {

@@ -94,3 +94,7 @@ a.article:hover {
     display: none;
   }
 } */
+
+#cursos{
+  cursor: pointer;
+}

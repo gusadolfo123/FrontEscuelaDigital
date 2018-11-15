@@ -1,3 +1,33 @@
-<p>
-  courses works!
-</p>
+<div class="container">
+  <div class="row-fluid pt-4">
+    <div class="col-md-12">
+      <h1 class="text-center">Listado de Cursos</h1>
+      <div><span>Administre los cursos correspondientes</span>
+        <a href="" class="btn btn-sm btn-primary mb-4 float-right">Crear</a>
+      </div>
+      <table class="table table-hover">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Titulo</th>
+            <th scope="col">Fecha Creacion</th>
+            <th scope="col"># Estudiantes</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let course of courses; index as i">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ course.Title }}</td>
+            <td>{{ course.created_at | date: 'yyyy-MM-dd' }}</td>
+            <td>{{ course.cnt }}</td>
+            <td class="text-right">
+              <a [routerLink]="['.', course.id]" class="btn btn-sm btn-outline-primary mr-2">Detalle</a>
+              <a [routerLink]="['.', course.id]" class="btn btn-sm btn-outline-info mr-2">Modificar</a>
+              <a [routerLink]="['.', course.id]" class="btn btn-sm btn-outline-danger">Eliminar</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

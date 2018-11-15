@@ -1,3 +1,5 @@
+import { Rol } from "./rol";
+
 export interface User {
   id?: string;
   firstName?: string;
@@ -8,4 +10,5 @@ export interface User {
   photo?: string;
   rol_id?: string;
   document_type_id?: string;
+  rol?: Rol
 }

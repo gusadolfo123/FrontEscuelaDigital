@@ -16,3 +16,16 @@
 app-sidebar{
   background-color: #7386D5 !important;
 }
+
+/* GMORENO */
+router-outlet{
+  display: none;
+}
+
+.routeContainer{
+  position: relative;
+}
+
+.routeContainer>*{
+  display: block;
+}

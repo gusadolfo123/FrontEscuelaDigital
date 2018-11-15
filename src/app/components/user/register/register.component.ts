@@ -71,9 +71,10 @@ export class RegisterComponent implements OnInit {
 
           this.auth.setUser(data);
 
-          location.reload();
+          //location.reload();
           //redirigo a profile
-          this.router.navigate(["/user/profile"]);
+          //this.router.navigate(["/user/profile"]);
+          window.location.replace("http://localhost:4200/dashboard");
         },
         response => {
           if (!isNullOrUndefined(response.error)) {

@@ -1,3 +1,12 @@
-<p>
-  profile works!
-</p>
+<div class="container">
+  <div class="row pt-4">
+    <div class="col-auto">
+      <img src="https://dummyimage.com/200x200/000/fff" alt="">
+    </div>
+    <div class="col-md-8">
+      <p>Nombre Completo: {{ user.firstName }} {{ user.lastName }}</p>
+      <p>Email: {{ user.email }}</p>
+      <p>Rol: {{ user.rol.Description }}</p>
+    </div>
+  </div>
+</div>

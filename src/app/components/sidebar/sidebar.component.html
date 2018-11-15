@@ -7,36 +7,37 @@
   <ul class="list-unstyled components">
     <div class="text-center">
       <img src="https://via.placeholder.com/150x150" class="rounded-circle" width="50%" />
-      <p>{{ userProfile.firstName }}</p>
+      <a routerLink="user/profile" routerLinkActive="active">
+        <p>{{ userProfile.firstName }}</p>
+      </a>
     </div>
-    <li>
-      <a href="#cursosSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-        <i class="fas fa-book-open"></i> Mis Cursos</a>
-      <ul class="collapse list-unstyled" id="cursosSubmenu">
-        <li><a href="#">Matematicas Basicas</a></li>
-        <li><a href="#">Historia de Colombia</a></li>
-        <li><a href="#">Biologia</a></li>
+    <li id="cursos">
+      <a data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" (click)="isNavbarCollapsed = !isNavbarCollapsed">
+        <i class="fas fa-book-open"></i>
+        Mis Cursos
+      </a>
+      <ul class="collapse list-unstyled" id="cursosSubmenu" [ngbCollapse]="!isNavbarCollapsed">
+        <li *ngFor="let course of courses"><a [routerLink]="['cursos', course.id]"> {{ course.Description }}</a></li>
       </ul>
     </li>
     <li>
-      <a routerLink="categorias" (click)="this.globals.setStateSidebar(!this.globals.getStateSidebar())"><i class="fas fa-book-open"></i>
-        Caregorias</a>
-    </li>
-    <li>
-      <a routerLink="/" (click)="this.globals.setStateSidebar(!this.globals.getStateSidebar())"><i class="far fa-comment"></i>
-        Mensajes</a>
+      <!-- <a routerLink="/" (click)="this.globals.setStateSidebar(!this.globals.getStateSidebar())"><i class="far fa-comment"></i> -->
+      <a routerLink="/">
+        <i class="far fa-comment"></i>
+        Mensajes
+      </a>
     </li>
   </ul>
 
   <ul class="list-unstyled CTAs">
-    <li>
+    <!-- <li>
       <a href="#" class="article text-left"><i class="fas fa-cog"></i> Ajustes</a>
-    </li>
+    </li> -->
     <li>
       <a href="#" class="article text-left"><i class="fas fa-file"></i> Terminos y Condiciones</a>
     </li>
     <li>
-      <a routerLink="/" class="article text-left"><i class="fas fa-sign-out-alt"></i> Salir</a>
+      <a href="" (click)="onLogout()" class="article text-left"><i class="fas fa-sign-out-alt"></i> Salir</a>
     </li>
   </ul>
 </nav>

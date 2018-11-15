@@ -8,7 +8,6 @@ import { NavbarComponent } from "./components/navbar/navbar.component";
 import { HomeComponent } from "./components/home/home.component";
 import { FooterComponent } from "./components/footer/footer.component";
 import { Page404Component } from "./components/page404/page404.component";
-import { HeroComponent } from "./components/hero/hero.component";
 import { LoginComponent } from "./components/user/login/login.component";
 import { ProfileComponent } from "./components/user/profile/profile.component";
 import { RegisterComponent } from "./components/user/register/register.component";
@@ -36,6 +35,13 @@ import { SidebarComponent } from "./components/sidebar/sidebar.component";
 import { SliderComponent } from "./components/slider/slider.component";
 import { ListCoursesHomeComponent } from "./components/course/list-courses-home/list-courses-home.component";
 
+// animaciones
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DashboardComponent } from './components/admin/dashboard/dashboard.component';
+import { DHeaderComponent } from './components/admin/d-header/d-header.component';
+import { DLessonsComponent } from './components/admin/d-lessons/d-lessons.component';
+import { DHomeComponent } from './components/admin/d-home/d-home.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +50,6 @@ import { ListCoursesHomeComponent } from "./components/course/list-courses-home/
     HomeComponent,
     FooterComponent,
     Page404Component,
-    HeroComponent,
     LoginComponent,
     ProfileComponent,
     RegisterComponent,
@@ -61,16 +66,21 @@ import { ListCoursesHomeComponent } from "./components/course/list-courses-home/
     ContactComponent,
     SidebarComponent,
     SliderComponent,
-    ListCoursesHomeComponent
+    ListCoursesHomeComponent,
+    DashboardComponent,
+    DHeaderComponent,
+    DLessonsComponent,
+    DHomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

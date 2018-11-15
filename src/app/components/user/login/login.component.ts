@@ -7,6 +7,7 @@ import { Router } from "@angular/router";
 import { isNullOrUndefined } from "util";
 import { NgForm } from "@angular/forms";
 import { User } from "src/app/models/user";
+import { Location } from "@angular/common";
 
 @Component({
   selector: "app-login",
@@ -24,7 +25,7 @@ export class LoginComponent implements OnInit {
     password: ""
   };
 
-  constructor(private auth: AuthService, private router: Router) { }
+  constructor(private auth: AuthService, private router: Router, private location: Location) { }
 
   ngOnInit() { }
 
@@ -40,8 +41,13 @@ export class LoginComponent implements OnInit {
               .subscribe((user: User) => {
                 this.auth.setUser(user);
 
-                location.reload();
-                this.router.navigate(["/user/profile"]);
+                if (user.rol.Description == 'Teacher') {
+                  window.location.replace("http://localhost:4200/dashboard");
+                } else {
+                  //this.router.navigate(["/user/profile"]);
+                  window.location.replace("http://localhost:4200/");
+                }
+                //location.reload();
                 this.isError = false;
               });
           } else {
